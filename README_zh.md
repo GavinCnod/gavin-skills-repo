@@ -28,6 +28,7 @@ gavin-skills-repo/
 | 技能名称 (Skill Name) | 描述 (Description) | 路径 (Path) |
 |-------------------|-------------------|------------|
 | **Hello World** | 一个简单的演示技能，用于验证配置和理解结构。 | [`skills/example-skill`](skills/example-skill/SKILL.md) |
+| **5D 战略思维 (5D Strategic Thinking)** | 基于五维思维框架的高阶战略分析工具，提供深度、全面和进化的视角。 | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | *Coming Soon* | *更多专业技能正在开发中...* | ... |
 
 ## 🚀 使用指南 (How to Use)

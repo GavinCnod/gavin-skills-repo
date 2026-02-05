@@ -28,6 +28,7 @@ gavin-skills-repo/
 | Skill Name | Description | Path |
 |------------|-------------|------|
 | **Hello World** | A simple demonstration skill to verify the setup. | [`skills/example-skill`](skills/example-skill/SKILL.md) |
+| **5D Strategic Thinking** | A high-level strategic analysis tool based on the 5-Dimensional Thinking framework. | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | *Coming Soon* | *More specialized skills are under development.* | ... |
 
 ## 🚀 How to Use
