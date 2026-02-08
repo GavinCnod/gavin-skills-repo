@@ -2,60 +2,58 @@
 
 [🇨🇳 中文说明](README_zh.md)
 
-Welcome to my personal collection of Agent Skills. This repository serves as a portfolio of my capabilities in building tools, workflows, and specialized knowledge bases for AI agents. It is designed to be modular, scalable, and easy to integrate, following the standard Agent Skills structure inspired by Anthropic.
+Welcome to my personal Agent Skills collection. This repository not only stores skill source code accumulated in work and life, but also records various tools, workflows, and specialized knowledge bases I have built for AI Agents. This project follows Anthropic's official Agent Skills standard structure, designed for modularity, scalability, and ease of use.
 
 ## 📖 Introduction
 
-This repository is more than just a code storage; it is a showcase of "Agentic Capabilities." Each folder in the `skills/` directory represents a distinct capability—whether it's data processing, API integration, or complex workflow automation—that can be dynamically loaded by an AI agent (like Claude).
+Each folder here (located in the `skills/` directory) represents an independent "skill"—whether it's data processing, API integration, or complex workflow automation. These skills are designed to be dynamically loaded and used by AI Agents (such as Claude / Trae or other Agent tools supporting Skills), thereby extending the Agent's capability boundaries.
 
-## 📂 Repository Structure
+## 📂 Structure
 
-The repository is organized to ensure clarity and ease of use:
+The repository structure is clear and easy to browse and maintain:
 
 ```text
 gavin-skills-repo/
 ├── README.md           # Project Home (English)
 ├── README_zh.md        # Project Home (Chinese)
-├── skills/             # The core directory containing all skills
+├── skills/             # Core directory containing all skills
 │   ├── _template/      # Standard template for creating new skills
-│   ├── example-skill/  # A demonstration skill
-│   └── [Your Skill]/   # Your custom skills go here
-└── LICENSE             # MIT License
+│   └── 5d-strategic-thinking/   # 5D Strategic Thinking skill, a high-level strategic analysis tool based on the 5-dimensional thinking framework, inspired by Dan Koe's long tweets
+└── LICENSE             # MIT Open Source License
 ```
 
-## 🛠️ Available Skills
+## 🛠️ Skill Showcase
 
 | Skill Name | Description | Path |
-|------------|-------------|------|
-| **Hello World** | A simple demonstration skill to verify the setup. | [`skills/example-skill`](skills/example-skill/SKILL.md) |
-| **5D Strategic Thinking** | A high-level strategic analysis tool based on the 5-Dimensional Thinking framework. | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
-| *Coming Soon* | *More specialized skills are under development.* | ... |
+|---|---|---|
+| **5D Strategic Thinking** | A high-level strategic analysis tool based on the 5-dimensional thinking framework, providing deep, comprehensive, and evolutionary perspectives. | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
+| *Coming Soon* | *More professional skills are under development...* | ... |
 
 ## 🚀 How to Use
 
 Each skill is self-contained. To use a skill:
 
-1.  Navigate to the specific skill folder in `skills/`.
-2.  Read the `SKILL.md` file to understand the skill's purpose, inputs, and usage examples.
-3.  Load the skill into your agent's context or configuration system.
+1.  Enter the corresponding skill folder under the `skills/` directory.
+2.  Read the `SKILL.md` file to understand the skill's purpose, input requirements, and usage examples.
+3.  Load the skill into your Agent context or configuration system.
 
-### Creating a New Skill
+### Creating New Skills
 
-To add a new skill to this repository:
+If you want to add a new skill to this repository:
 
 1.  Copy the `skills/_template` folder and rename it to your skill name (e.g., `skills/my-awesome-skill`).
-2.  Edit `SKILL.md` to define the metadata (`name`, `description`) and provide detailed instructions.
-3.  Add any necessary scripts or resources within the folder.
+2.  Edit `SKILL.md` to define metadata (`name`, `description`) and write detailed instruction explanations.
+3.  Add any necessary scripts or resource files to the folder.
 
 ## 👤 About the Author
 
-**Gavin**
+**Gavin Chen**
 
-I am passionate about AI Agents and building the future of automated workflows. This repository is part of my journey to define and refine what agents can do.
+I am passionate about exploring AI Agent technology and dedicated to building future automated workflows. This repository is part of my journey to define and polish Agent capabilities.
 
-- **GitHub**: [Your GitHub Profile Link]
-- **Blog/Website**: [Your Website Link]
-- **Contact**: [Your Email or Social Media]
+- **GitHub**: [GavinCnod](https://github.com/GavinCnod)
+- **Blog/Website**: [Gavin's Company Home](https://www.mindrose.xyz/)
+- **Contact**: [contact@mindrose.xyz](mailto:contact@mindrose.xyz)
 
 ---
-*Licensed under the [MIT License](LICENSE).*
+*This project is open source under the [MIT License](LICENSE).*
