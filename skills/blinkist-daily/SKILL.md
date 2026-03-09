@@ -25,21 +25,22 @@ Blinkist offers one free book summary every 24 hours. This skill automates the c
 Run the collection script:
 
 ```bash
-python /root/.openclaw/workspace/skills/blinkist-daily/scripts/collect_blinkist.py
+python skills/blinkist-daily/scripts/collect_blinkist.py
 ```
 
 The script will:
-- Create a timestamped Markdown file in the workspace
+- Create a timestamped Markdown file in the current directory (or specified via `--output`)
 - Output the file path upon completion
 - Include book metadata (title, author, rating, reading time)
 
 ### Automated Schedule
 
-Set up a cron job to run daily at 10:00 AM:
+Set up a cron job (Linux/Mac) or Task Scheduler (Windows) to run daily.
+
+Example cron setup:
 
 ```bash
-# Example cron setup
-0 10 * * * python /root/.openclaw/workspace/skills/blinkist-daily/scripts/collect_blinkist.py
+0 10 * * * python /path/to/skills/blinkist-daily/scripts/collect_blinkist.py --output /path/to/save/notes
 ```
 
 ## Technical Details

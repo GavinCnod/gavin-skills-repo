@@ -8,6 +8,7 @@ and saves it as a Markdown file.
 
 import re
 import sys
+import argparse
 from datetime import datetime
 from pathlib import Path
 import requests
@@ -51,6 +52,23 @@ def parse_daily_page(content: str) -> dict:
             info['title'] = match.group(1).strip()
             break
     
+    # Clean up title if it matches too much content
+    if info['title']:
+        # If title contains image markdown, try to extract from alt text or text after it
+        if '![' in info['title']:
+            # Try to extract from alt text first
+            alt_match = re.search(r'!\[.*?: (.*?)\]', info['title'])
+            if alt_match:
+                info['title'] = alt_match.group(1)
+            else:
+                # If no alt text match, take the last non-empty line which is usually the title
+                lines = [line.strip() for line in info['title'].split('\n') if line.strip()]
+                if lines:
+                    info['title'] = lines[-1]
+        
+        # Remove any remaining newlines and extra spaces
+        info['title'] = re.sub(r'\s+', ' ', info['title']).strip()
+
     # Try simpler approach - look for book title pattern
     if not info['title']:
         # Look for pattern: image followed by title then dashes
@@ -156,7 +174,8 @@ def parse_book_content(content: str) -> str:
 def save_markdown(info: dict, content: str, output_dir: Path = None) -> Path:
     """Save the book summary as a Markdown file."""
     if output_dir is None:
-        output_dir = Path('/root/.openclaw/workspace')
+        # Use current working directory by default for cross-platform compatibility
+        output_dir = Path.cwd()
     
     output_dir.mkdir(parents=True, exist_ok=True)
     
@@ -167,19 +186,19 @@ def save_markdown(info: dict, content: str, output_dir: Path = None) -> Path:
     # Build markdown content
     md_content = f"""# Blinkist 每日书摘 - {date_str}
 
-> **采集时间**: {datetime.now().strftime('%Y-%m-%d %H:%M')}
-> **来源**: [Blinkist Daily Free](https://www.blinkist.com/en/app/daily)
+> **Created Date**: {datetime.now().strftime('%Y-%m-%d %H:%M')}
+> **Source**: [Blinkist Daily Free](https://www.blinkist.com/en/app/daily)
 
 ---
 
-## 📚 今日免费书摘
+## 📚 Free Blinkist Daily
 
 # {info['title'] or 'Unknown Title'}
-**作者**: {info['author'] or 'Unknown Author'}
+**Author**: {info['author'] or 'Unknown Author'}
 
-**评分**: ⭐ {info['rating'] or 'N/A'}/5  
-**阅读时长**: {info['duration'] or 'Unknown'}  
-**核心观点**: {info['key_ideas'] or 'N/A'} 个关键理念
+**Rating**: ⭐ {info['rating'] or 'N/A'}/5  
+**Reading Time**: {info['duration'] or 'Unknown'}  
+**Key Ideas**: {info['key_ideas'] or 'N/A'} Key Ideas
 
 ---
 
@@ -187,7 +206,7 @@ def save_markdown(info: dict, content: str, output_dir: Path = None) -> Path:
 
 ---
 
-*本书由 Blinkist 提供每日免费书摘服务*
+*Provided by Blinkist*
 """
     
     filepath.write_text(md_content, encoding='utf-8')
@@ -196,6 +215,10 @@ def save_markdown(info: dict, content: str, output_dir: Path = None) -> Path:
 
 def main():
     """Main entry point."""
+    parser = argparse.ArgumentParser(description='Blinkist Daily Book Summary Collector')
+    parser.add_argument('--output', '-o', type=Path, default=None, help='Output directory for the markdown file')
+    args = parser.parse_args()
+
     print("🔍 Fetching Blinkist daily free book...")
     
     # Fetch daily page
@@ -215,7 +238,6 @@ def main():
     if not info['slug']:
         print("⚠️ Could not extract book slug, trying alternative method...")
         # Try to find slug in the content more aggressively
-        import re
         possible_slugs = re.findall(r'/books/([\w-]+)', daily_content)
         if possible_slugs:
             info['slug'] = possible_slugs[0]
@@ -225,7 +247,7 @@ def main():
         print("❌ Could not determine book slug")
         # Save what we have anyway
         content = parse_book_content(daily_content)
-        filepath = save_markdown(info, content)
+        filepath = save_markdown(info, content, output_dir=args.output)
         print(f"💾 Partial content saved to: {filepath}")
         sys.exit(0)
     
@@ -246,7 +268,7 @@ def main():
     parsed_content = parse_book_content(book_content)
     
     # Save to file
-    filepath = save_markdown(info, parsed_content)
+    filepath = save_markdown(info, parsed_content, output_dir=args.output)
     print(f"💾 Book summary saved to: {filepath}")
     
     return filepath
