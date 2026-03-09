@@ -10,24 +10,19 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-import urllib.request
-import urllib.error
-import json
+import requests
 
 
 def fetch_url(url: str, timeout: int = 30) -> str:
-    """Fetch content from URL using urllib."""
+    """Fetch content from URL using requests."""
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
     }
-    req = urllib.request.Request(url, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as response:
-            return response.read().decode('utf-8')
-    except urllib.error.HTTPError as e:
-        print(f"HTTP Error {e.code}: {e.reason}")
-        return ""
-    except Exception as e:
+        response = requests.get(url, headers=headers, timeout=timeout)
+        response.raise_for_status()
+        return response.text
+    except requests.exceptions.RequestException as e:
         print(f"Error fetching {url}: {e}")
         return ""
 
@@ -98,10 +93,16 @@ def parse_daily_page(content: str) -> dict:
     if key_ideas_match:
         info['key_ideas'] = key_ideas_match.group(1)
     
-    # Extract slug from URL pattern
-    slug_match = re.search(r'books/([\w-]+?)(?:-en)?(?:\?|$|\s)', content)
-    if slug_match:
-        info['slug'] = slug_match.group(1)
+    # Extract slug from URL pattern (look for the book link in the content)
+    # First try to find the full book URL in the daily page
+    book_link_match = re.search(r'blinkist\.com/en/reader/books/([\w-]+)', content)
+    if book_link_match:
+        info['slug'] = book_link_match.group(1)
+    else:
+        # Fallback: extract from other patterns
+        slug_match = re.search(r'books/([\w-]+?)(?:-en)?(?:\?|$|\s)', content)
+        if slug_match:
+            info['slug'] = slug_match.group(1)
     
     # Alternative: extract from link
     if not info['slug']:
@@ -114,23 +115,42 @@ def parse_daily_page(content: str) -> dict:
 
 def parse_book_content(content: str) -> str:
     """Parse the full book content and format as markdown."""
-    # Clean up the content
+    # Find the actual markdown content section
     lines = content.split('\n')
     formatted_lines = []
+    in_content = False
     
     for line in lines:
         # Skip security notices and metadata
-        if any(skip in line for skip in ['SECURITY NOTICE', 'EXTERNAL_UNTRUSTED', 'Source:']):
+        if any(skip in line for skip in ['SECURITY NOTICE', 'EXTERNAL_UNTRUSTED', 'Source:', '<<<EXTERNAL']):
             continue
         if line.startswith('Title:') and 'URL Source:' in content:
-            continue
+            # Extract author from title line if present
+            if ' by ' in line:
+                continue
         if line.startswith('URL Source:'):
             continue
         if line.startswith('Markdown Content:'):
+            in_content = True
             continue
-        formatted_lines.append(line)
+        if line.strip() == '<<<END_EXTERNAL_UNTRUSTED_CONTENT>>>':
+            break
+        if in_content:
+            formatted_lines.append(line)
     
-    return '\n'.join(formatted_lines)
+    result = '\n'.join(formatted_lines).strip()
+    
+    # If no content extracted, return cleaned original
+    if not result:
+        for line in lines:
+            if any(skip in line for skip in ['SECURITY NOTICE', 'EXTERNAL_UNTRUSTED', 'Source:', '<<<']):
+                continue
+            if line.startswith('Title:') or line.startswith('URL Source:'):
+                continue
+            formatted_lines.append(line)
+        result = '\n'.join(formatted_lines).strip()
+    
+    return result
 
 
 def save_markdown(info: dict, content: str, output_dir: Path = None) -> Path:
@@ -210,7 +230,8 @@ def main():
         sys.exit(0)
     
     # Fetch full book content
-    book_url = f"https://r.jina.ai/http://www.blinkist.com/en/reader/books/{info['slug']}-en"
+    # Use the slug directly as it already contains the full book identifier
+    book_url = f"https://r.jina.ai/http://www.blinkist.com/en/reader/books/{info['slug']}"
     print(f"🔍 Fetching book content from: {book_url}")
     
     book_content = fetch_url(book_url)
