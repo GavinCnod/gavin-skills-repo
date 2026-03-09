@@ -27,6 +27,7 @@ gavin-skills-repo/
 | Skill Name | Description | Path |
 |---|---|---|
 | **5D Strategic Thinking** | A high-level strategic analysis tool based on the 5-dimensional thinking framework, providing deep, comprehensive, and evolutionary perspectives. | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
+| **Blinkist Daily Collector** | Automatically fetch and save Blinkist's daily free book summary, extracting key insights and metadata into clean Markdown. | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
 | *Coming Soon* | *More professional skills are under development...* | ... |
 
 ## 🚀 How to Use

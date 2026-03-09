@@ -27,6 +27,7 @@ gavin-skills-repo/
 | 技能名称 (Skill Name) | 描述 (Description) | 路径 (Path) |
 |-------------------|-------------------|------------|
 | **5D 战略思维 (5D Strategic Thinking)** | 基于五维思维框架的高阶战略分析工具，提供深度、全面和进化的视角。 | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
+| **Blinkist 每日书摘 (Blinkist Daily)** | 自动采集 Blinkist 每日免费书籍摘要，并提取核心观点生成 Markdown 笔记。 | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
 | *Coming Soon* | *更多专业技能正在开发中...* | ... |
 
 ## 🚀 使用指南 (How to Use)
