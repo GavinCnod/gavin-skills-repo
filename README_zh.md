@@ -18,7 +18,8 @@ gavin-skills-repo/
 ├── README_zh.md        # 项目主页 (中文)
 ├── skills/             # 核心目录，存放所有技能
 │   ├── _template/      # 标准模板，用于快速创建新技能
-│   └── 5d-strategic-thinking/   # 5D 战略思维技能，基于五维思维框架的高阶战略分析工具，灵感来源于 Dan Koe 的推特长文
+│   ├── 5d-strategic-thinking/   # 5D 战略思维技能，基于五维思维框架的高阶战略分析工具，灵感来源于 Dan Koe 的推特长文
+│   └── blinkist-daily/          # Blinkist 每日书摘采集器，自动抓取每日免费书籍摘要
 └── LICENSE             # MIT 开源许可证
 ```
 

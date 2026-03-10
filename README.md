@@ -18,7 +18,8 @@ gavin-skills-repo/
 ├── README_zh.md        # Project Home (Chinese)
 ├── skills/             # Core directory containing all skills
 │   ├── _template/      # Standard template for creating new skills
-│   └── 5d-strategic-thinking/   # 5D Strategic Thinking skill, a high-level strategic analysis tool based on the 5-dimensional thinking framework, inspired by Dan Koe's long tweets
+│   ├── 5d-strategic-thinking/   # 5D Strategic Thinking skill, a high-level strategic analysis tool, inspired by Dan Koe's article from X
+│   └── blinkist-daily/          # Blinkist Daily Collector, automatically fetches daily free book summaries
 └── LICENSE             # MIT Open Source License
 ```
 
