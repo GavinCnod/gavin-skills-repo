@@ -39,6 +39,12 @@ def parse_daily_page(content: str) -> dict:
         'key_ideas': ''
     }
     
+    # Try the new Jina markdown format first
+    jina_match = re.search(r'!\[.*?\]\(.*?blinkist\.io/images/books.*?\)\n+(?:#+\s*)?([^\n]+)\n+by\s+([^\n]+)', content)
+    if jina_match:
+        info['title'] = jina_match.group(1).strip()
+        info['author'] = jina_match.group(2).strip()
+    
     # Extract title - usually in format "Title\n--------" or just prominent heading
     title_patterns = [
         r'Today[\'\u2019]s Free Blink.*?\n={3,}\n\n.*?\n\n(.+?)\n-+',  # Title after image
@@ -46,11 +52,12 @@ def parse_daily_page(content: str) -> dict:
         r'\"title\"\s*:\s*\"([^\"]+)\"',
     ]
     
-    for pattern in title_patterns:
-        match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
-        if match:
-            info['title'] = match.group(1).strip()
-            break
+    if not info['title']:
+        for pattern in title_patterns:
+            match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
+            if match:
+                info['title'] = match.group(1).strip()
+                break
     
     # Clean up title if it matches too much content
     if info['title']:
