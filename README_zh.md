@@ -19,6 +19,7 @@ gavin-skills-repo/
 ├── skills/             # 核心目录，存放所有技能
 │   ├── _template/      # 标准模板，用于快速创建新技能
 │   ├── 5d-strategic-thinking/   # 5D 战略思维技能，基于五维思维框架的高阶战略分析工具，灵感来源于 Dan Koe 的推特长文
+│   ├── b2b-product-blog-writing/# B2B 工业产品博客写作，根据源文件生成符合 SEO 要求的英文介绍
 │   └── blinkist-daily/          # Blinkist 每日书摘采集器，自动抓取每日免费书籍摘要
 └── LICENSE             # MIT 开源许可证
 ```
@@ -29,6 +30,7 @@ gavin-skills-repo/
 |-------------------|-------------------|------------|
 | **5D 战略思维 (5D Strategic Thinking)** | 基于五维思维框架的高阶战略分析工具，提供深度、全面和进化的视角。 | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | **Blinkist 每日书摘 (Blinkist Daily)** | 自动采集 Blinkist 每日免费书籍摘要，并提取核心观点生成 Markdown 笔记。 | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
+| **B2B 工业产品博客写作 (B2B Product Blog Writing)** | 根据提供的源文件为 B2B 工业产品撰写 SEO 友好的英文短介绍或博客内容。 | [`skills/b2b-product-blog-writing`](skills/b2b-product-blog-writing/SKILL.md) |
 | *Coming Soon* | *更多专业技能正在开发中...* | ... |
 
 ## 🚀 使用指南 (How to Use)

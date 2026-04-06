@@ -19,6 +19,7 @@ gavin-skills-repo/
 ├── skills/             # Core directory containing all skills
 │   ├── _template/      # Standard template for creating new skills
 │   ├── 5d-strategic-thinking/   # 5D Strategic Thinking skill, a high-level strategic analysis tool, inspired by Dan Koe's article from X
+│   ├── b2b-product-blog-writing/# B2B Product Blog Writer, generates SEO-friendly intros for industrial products
 │   └── blinkist-daily/          # Blinkist Daily Collector, automatically fetches daily free book summaries
 └── LICENSE             # MIT Open Source License
 ```
@@ -29,6 +30,7 @@ gavin-skills-repo/
 |---|---|---|
 | **5D Strategic Thinking** | A high-level strategic analysis tool based on the 5-dimensional thinking framework, providing deep, comprehensive, and evolutionary perspectives. | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | **Blinkist Daily Collector** | Automatically fetch and save Blinkist's daily free book summary, extracting key insights and metadata into clean Markdown. | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
+| **B2B Product Blog Writer** | Generates SEO-friendly short introductions or blog content for B2B industrial products based on source materials. | [`skills/b2b-product-blog-writing`](skills/b2b-product-blog-writing/SKILL.md) |
 | *Coming Soon* | *More professional skills are under development...* | ... |
 
 ## 🚀 How to Use
