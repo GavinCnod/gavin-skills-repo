@@ -13,8 +13,9 @@ skills/
 ├── _template/                  # Standard template for new skills
 ├── <skill-name>/               # Each skill is a self-contained folder
 │   ├── SKILL.md                # Required: YAML frontmatter + instructions
+│   ├── scripts/                # Optional: executable code (Python, etc.)
 │   ├── references/             # Optional: supplementary docs
-│   └── scripts/                # Optional: executable code (Python, etc.)
+│   └── assets/                 # Optional: templates, images, fonts
 ```
 
 ## Creating a New Skill
@@ -22,7 +23,7 @@ skills/
 1. Copy `skills/_template/` and rename to `skills/<my-skill>/`.
 2. Edit `SKILL.md` with required YAML frontmatter fields: `name` (slug), `description` (1-2 sentences on what it does and when to trigger).
 3. Add instructions, workflows, and examples in the body.
-4. Optional: add scripts to `scripts/`, reference docs to `references/`.
+4. Optional: add scripts to `scripts/`, reference docs to `references/`, assets to `assets/`.
 5. Update `README.md` and `README_zh.md` — add the skill to the showcase table and the structure diagram. Both files must be kept in sync (English + Chinese).
 
 ## SKILL.md Format

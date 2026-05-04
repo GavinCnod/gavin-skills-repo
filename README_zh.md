@@ -18,9 +18,9 @@ gavin-skills-repo/
 ├── README_zh.md        # 项目主页 (中文)
 ├── skills/             # 核心目录，存放所有技能
 │   ├── _template/      # 标准模板，用于快速创建新技能
-│   ├── 5d-strategic-thinking/   # 5D 战略思维技能，基于五维思维框架的高阶战略分析工具，灵感来源于 Dan Koe 的推特长文
-│   ├── b2b-product-blog-writing/# B2B 工业产品博客写作，根据源文件生成符合 SEO 要求的英文介绍
-│   └── blinkist-daily/          # Blinkist 每日书摘采集器，自动抓取每日免费书籍摘要
+│   ├── 5d-strategic-thinking/   # 5D 战略思维 — 基于五维框架（Threads, Levels, Altitude, Perspectives, Time）的深度战略分析工具
+│   ├── b2b-product-blog-writing/# B2B 工业产品博客写作 — SEO 优化的英文产品介绍，包含交互式 Q&A 工作流
+│   └── blinkist-daily/          # Blinkist 每日书摘采集器 — 自动抓取每日免费书籍摘要
 └── LICENSE             # MIT 开源许可证
 ```
 
@@ -28,14 +28,31 @@ gavin-skills-repo/
 
 | 技能名称 (Skill Name) | 描述 (Description) | 路径 (Path) |
 |-------------------|-------------------|------------|
-| **5D 战略思维 (5D Strategic Thinking)** | 基于五维思维框架的高阶战略分析工具，提供深度、全面和进化的视角。 | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
+| **5D 战略思维 (5D Strategic Thinking)** | 基于五维思维框架（Threads, Levels, Altitude, Perspectives, Time）的高阶战略分析工具，为复杂问题和决策提供深度、全面和进化的视角。 | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | **Blinkist 每日书摘 (Blinkist Daily)** | 自动采集 Blinkist 每日免费书籍摘要，并提取核心观点生成 Markdown 笔记。 | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
-| **B2B 工业产品博客写作 (B2B Product Blog Writing)** | 根据提供的源文件为 B2B 工业产品撰写 SEO 友好的英文短介绍或博客内容。 | [`skills/b2b-product-blog-writing`](skills/b2b-product-blog-writing/SKILL.md) |
+| **B2B 工业产品博客写作 (B2B Product Blog Writing)** | 根据提供的源文件（PDF、文档等）为 B2B 工业产品撰写 SEO 优化的英文短介绍（约 200 字）。包含交互式 Q&A 工作流确认产品细节。 | [`skills/b2b-product-blog-writing`](skills/b2b-product-blog-writing/SKILL.md) |
 | *Coming Soon* | *更多专业技能正在开发中...* | ... |
 
 ## 🚀 使用指南 (How to Use)
 
-每个技能都是自包含的。要使用某个技能：
+### 通过 npx skills 快速安装
+
+```bash
+# 列出仓库中所有可用技能
+npx skills add GavinCnod/gavin-skills-repo --list
+
+# 安装指定技能（支持 Claude Code、Cursor、Codex、Windsurf 等）
+npx skills add GavinCnod/gavin-skills-repo --skill blinkist-daily
+
+# 一键安装所有技能（非交互模式）
+npx skills add GavinCnod/gavin-skills-repo --skill '*' -y
+```
+
+安装后即可使用——在 Agent 中输入 `/skill-name` 调用，或直接描述你的任务，Agent 会自动触发对应技能。
+
+### 手动安装
+
+每个技能都是自包含的。要手动使用某个技能：
 
 1.  将目标技能文件夹从 `skills/` 复制或软链接到 `~/.claude/skills/`（Claude Code 仅扫描此目录）。
 2.  技能会被自动发现——Agent 通过 `SKILL.md` 的 frontmatter 中的 `name` 和 `description` 决定何时触发。

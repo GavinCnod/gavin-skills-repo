@@ -1,11 +1,14 @@
 ---
 name: b2b-product-blog-writing
 description: >
-  根据提供的源文件（如 PDF、文档等），为 B2B 工业产品撰写 SEO
-  友好的英文短介绍或博客内容。包含交互式 Q&A 以确认产品细节。
-  触发场景: 用户要求写 B2B 产品介绍、工业产品博客、SEO 产品文案时使用。
+  Write SEO-optimized English short introductions (~200 words) and blog
+  content for B2B industrial products based on source materials (PDFs, docs).
+  Interactive Q&A workflow to confirm product details before writing.
+  根据提供的源文件为 B2B 工业产品撰写 SEO 友好的英文短介绍或博客内容，
+  包含交互式 Q&A 以确认产品细节。
   Trigger phrases: "产品介绍", "B2B blog", "工业产品文案", "product intro",
-  "write product description", "SEO product copy".
+  "write product description", "SEO product copy", "product blog writing",
+  "B2B product introduction", "工业产品博客写作".
 license: MIT
 metadata:
   version: "1.0.1"
