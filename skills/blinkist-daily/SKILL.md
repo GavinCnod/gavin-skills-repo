@@ -1,6 +1,15 @@
 ---
 name: blinkist-daily
-description: Automatically collect Blinkist daily free book summaries. Use when the user wants to fetch the daily free Blinkist book, extract book summaries, or automate Blinkist content collection. Trigger on phrases like "Blinkist daily", "采集 Blinkist", "每日书摘", "blinkist 免费书".
+description: >
+  Automatically collect Blinkist daily free book summaries. Use when the user
+  wants to fetch the daily free Blinkist book, extract book summaries, or
+  automate Blinkist content collection. Trigger on phrases like "Blinkist daily",
+  "采集 Blinkist", "每日书摘", "blinkist 免费书".
+license: MIT
+metadata:
+  version: "1.0.0"
+  author: GavinCnod
+  category: automation
 ---
 
 # Blinkist Daily Collector
@@ -33,16 +42,6 @@ The script will:
 - Output the file path upon completion
 - Include book metadata (title, author, rating, reading time)
 
-### Automated Schedule
-
-Set up a cron job (Linux/Mac) or Task Scheduler (Windows) to run daily.
-
-Example cron setup:
-
-```bash
-0 10 * * * python /path/to/skills/blinkist-daily/scripts/collect_blinkist.py --output /path/to/save/notes
-```
-
 ## Technical Details
 
 ### Data Sources
@@ -65,7 +64,6 @@ Each file includes:
 
 - Python 3.x
 - requests library
-- markdown library (optional, for formatting)
 
 ## References
 

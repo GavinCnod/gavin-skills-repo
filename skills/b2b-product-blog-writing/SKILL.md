@@ -1,8 +1,16 @@
 ---
 name: b2b-product-blog-writing
-description: 根据提供的源文件（如 PDF、文档等），为 B2B 工业产品撰写 SEO 友好的英文短介绍或博客内容。包含 Q&A 功能以确认详细信息。生成约 200 字的英文 Markdown 文件，并保存到 output 文件夹中，文件名与源文件同名。
+description: >
+  根据提供的源文件（如 PDF、文档等），为 B2B 工业产品撰写 SEO
+  友好的英文短介绍或博客内容。包含交互式 Q&A 以确认产品细节。
+  触发场景: 用户要求写 B2B 产品介绍、工业产品博客、SEO 产品文案时使用。
+  Trigger phrases: "产品介绍", "B2B blog", "工业产品文案", "product intro",
+  "write product description", "SEO product copy".
+license: MIT
 metadata:
-  version: 1.0.1
+  version: "1.0.1"
+  author: GavinCnod
+  category: content-writing
 ---
 
 # B2B Product Blog & Intro Writing

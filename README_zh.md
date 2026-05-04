@@ -37,17 +37,32 @@ gavin-skills-repo/
 
 每个技能都是自包含的。要使用某个技能：
 
-1.  进入 `skills/` 目录下对应的技能文件夹。
-2.  阅读 `SKILL.md` 文件，了解该技能的用途、输入要求和使用示例。
-3.  将该技能加载到你的 Agent 上下文或配置系统中。
+1.  将目标技能文件夹从 `skills/` 复制或软链接到 `~/.claude/skills/`（Claude Code 仅扫描此目录）。
+2.  技能会被自动发现——Agent 通过 `SKILL.md` 的 frontmatter 中的 `name` 和 `description` 决定何时触发。
+3.  部分技能包含可独立运行的脚本，例如：
+    ```bash
+    python skills/blinkist-daily/scripts/collect_blinkist.py
+    ```
+
+### 验证与打包技能
+
+分发技能前，使用 skill-creator 工具进行验证和打包：
+
+```bash
+# 验证技能结构和 frontmatter
+python ~/.claude/skills/skill-creator/scripts/package_skill.py skills/<skill-name>
+```
+
+此命令会生成一个 `.skill` 文件（zip 压缩包），可直接分发。
 
 ### 创建新技能
 
 如果你想向此仓库添加新技能：
 
 1.  复制 `skills/_template` 文件夹，并将其重命名为你的技能名称（例如 `skills/my-awesome-skill`）。
-2.  编辑 `SKILL.md`，定义元数据（`name`, `description`）并编写详细的指令说明。
-3.  在文件夹中添加任何必要的脚本或资源文件。
+2.  编辑 `SKILL.md`——frontmatter 中的 `description` 字段至关重要：必须同时描述技能功能与触发条件（包含具体触发短语）。
+3.  在文件夹中添加必要的 `scripts/`、`references/` 或 `assets/` 资源。
+4.  删除模板中不需要的示例目录。
 
 ## 👤 关于作者 (About the Author)
 

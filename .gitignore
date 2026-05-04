@@ -22,3 +22,13 @@ yarn-error.log
 
 # Trae
 .trae/
+
+# Skills (npx skills add artifacts)
+.skills.json
+skills-lock.json
+.agents/
+.claude/
+.codex/
+.cursor/
+.windsurf/
+.gemini/

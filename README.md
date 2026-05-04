@@ -37,17 +37,32 @@ gavin-skills-repo/
 
 Each skill is self-contained. To use a skill:
 
-1.  Enter the corresponding skill folder under the `skills/` directory.
-2.  Read the `SKILL.md` file to understand the skill's purpose, input requirements, and usage examples.
-3.  Load the skill into your Agent context or configuration system.
+1.  Copy or symlink the desired skill folder from `skills/` into `~/.claude/skills/` (Claude Code only scans this directory).
+2.  The skill will be auto-discovered — the Agent reads the `name` and `description` from `SKILL.md` frontmatter to decide when to trigger it.
+3.  Some skills include standalone scripts that can be run directly, e.g.:
+    ```bash
+    python skills/blinkist-daily/scripts/collect_blinkist.py
+    ```
+
+### Validating and Packaging Skills
+
+Before distributing a skill, validate and package it using the skill-creator tool:
+
+```bash
+# Validate skill structure and frontmatter
+python ~/.claude/skills/skill-creator/scripts/package_skill.py skills/<skill-name>
+```
+
+This produces a `.skill` file (a zip archive) ready for distribution.
 
 ### Creating New Skills
 
 If you want to add a new skill to this repository:
 
 1.  Copy the `skills/_template` folder and rename it to your skill name (e.g., `skills/my-awesome-skill`).
-2.  Edit `SKILL.md` to define metadata (`name`, `description`) and write detailed instruction explanations.
-3.  Add any necessary scripts or resource files to the folder.
+2.  Edit `SKILL.md` — the frontmatter `description` field is critical: it must describe both what the skill does AND when to trigger (include specific trigger phrases).
+3.  Add any necessary `scripts/`, `references/`, or `assets/` to the folder.
+4.  Delete any unused example directories from the template.
 
 ## 👤 About the Author
 

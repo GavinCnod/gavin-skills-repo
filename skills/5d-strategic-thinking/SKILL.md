@@ -1,6 +1,17 @@
 ---
 name: 5d-strategic-thinking
-description: A high-level strategic analysis tool based on the 5-Dimensional Thinking framework. Use this skill when the user presents a complex problem, strategy, or decision-making scenario and needs a deep, holistic, and evolutionary perspective. It involves an interactive process of information gathering followed by multi-dimensional analysis.
+description: >
+  A high-level strategic analysis tool based on the 5-Dimensional Thinking
+  framework (Threads, Levels, Altitude, Perspectives, Time). Use when the user
+  presents a complex problem, strategy, or decision-making scenario and needs
+  deep, holistic analysis. Trigger phrases: "strategy", "strategic analysis",
+  "战略分析", "深度思考", "complex decision", "5D thinking", "holistic analysis",
+  "帮我分析战略".
+license: MIT
+metadata:
+  version: "1.0.0"
+  author: GavinCnod
+  category: strategy-thinking
 ---
 
 # 5D Strategic Thinking Skill
@@ -17,11 +28,7 @@ The process consists of two main phases:
 
 When the user presents a problem, **DO NOT jump straight to a solution.** Most problems are poorly defined. You must first map the "Missing Territory."
 
-1.  **Scan the 4 Quadrants**: Look at the problem through the lens of the 4 fundamental perspectives. Identify which quadrants are under-represented in the user's description.
-    *   **I (Interior-Individual)**: Mindset, psychology, beliefs, emotions, "felt sense".
-    *   **It (Exterior-Individual)**: Behaviors, skills, data, biological states, measurable actions.
-    *   **We (Interior-Collective)**: Culture, relationships, shared values, trust, ethics.
-    *   **Its (Exterior-Collective)**: Systems, environment, technology, rules, economics.
+1.  **Scan the 4 Quadrants**: Look at the problem through the lens of the 4 fundamental perspectives (see [framework.md](references/framework.md) Dimension 4 for full definitions). Identify which quadrants are under-represented in the user's description.
 
 2.  **Scan for Time/Context**: What is the history? What is the evolutionary trajectory?
 
@@ -40,10 +47,7 @@ Once the user provides the context (or if the initial prompt was comprehensive),
 *   Are we missing a crucial discipline? (e.g., trying to solve a psychological problem with engineering).
 
 **Step 2: Dimension 2 - Levels (Depth)**
-*   Assess the cognitive level of the situation/actors.
-    *   *Level 1 (Conformist)*: Following rules, rigid?
-    *   *Level 2 (Individualist)*: Self-interest, competing, winning?
-    *   *Level 3 (Integral)*: Systemic, inclusive, paradox-managing?
+*   Assess the cognitive level of the situation/actors (see [framework.md](references/framework.md) Dimension 2 for full level definitions).
 *   *Strategy*: Ensure the solution is at least one level higher than the problem.
 
 **Step 3: Dimension 3 - Altitude (Balance)**
@@ -70,6 +74,18 @@ Present the findings in a structured format:
     *   *System (Its)*
 4.  **Evolutionary Check**: How this prepares for the long term.
 
+## Examples
+
+**Example 1: Business strategy**
+> User: "Our startup is losing market share to a competitor with an inferior product."
+
+Agent enters Phase 1 — scans quadrants, generates questions: "You mentioned the competitor has an inferior product (It), but how is your team's morale (We) and your own confidence in the strategy (I) affecting execution?" Then proceeds to 5D analysis.
+
+**Example 2: Career decision**
+> User: "I can't decide whether to take a management role or stay technical."
+
+Agent maps across quadrants (skills, mindset, culture fit, org structure), assesses levels of each option, evaluates evolutionary trajectory, then outputs Diagnosis + Gap + 5D Strategy.
+
 ## References
 
-For detailed definitions of the dimensions, refer to [framework.md](references/framework.md).
+For detailed definitions of all dimensions, refer to [framework.md](references/framework.md).

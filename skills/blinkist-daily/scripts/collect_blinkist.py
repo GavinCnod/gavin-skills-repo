@@ -226,57 +226,57 @@ def main():
     parser.add_argument('--output', '-o', type=Path, default=None, help='Output directory for the markdown file')
     args = parser.parse_args()
 
-    print("🔍 Fetching Blinkist daily free book...")
+    print("Fetching Blinkist daily free book...")
     
     # Fetch daily page
     daily_url = 'https://r.jina.ai/http://www.blinkist.com/en/app/daily'
     daily_content = fetch_url(daily_url)
     
     if not daily_content:
-        print("❌ Failed to fetch daily page")
+        print("ERROR: Failed to fetch daily page")
         sys.exit(1)
     
-    print("✅ Daily page fetched")
+    print("OK Daily page fetched")
     
     # Parse book info
     info = parse_daily_page(daily_content)
-    print(f"📖 Book found: {info['title'] or 'N/A'} by {info['author'] or 'N/A'}")
+    print(f"Book found: {info['title'] or 'N/A'} by {info['author'] or 'N/A'}")
     
     if not info['slug']:
-        print("⚠️ Could not extract book slug, trying alternative method...")
+        print("WARNING: Could not extract book slug, trying alternative method...")
         # Try to find slug in the content more aggressively
         possible_slugs = re.findall(r'/books/([\w-]+)', daily_content)
         if possible_slugs:
             info['slug'] = possible_slugs[0]
-            print(f"✅ Found slug: {info['slug']}")
+            print(f"OK Found slug: {info['slug']}")
     
     if not info['slug']:
-        print("❌ Could not determine book slug")
+        print("ERROR: Could not determine book slug")
         # Save what we have anyway
         content = parse_book_content(daily_content)
         filepath = save_markdown(info, content, output_dir=args.output)
-        print(f"💾 Partial content saved to: {filepath}")
+        print(f"Partial content saved to: {filepath}")
         sys.exit(0)
     
     # Fetch full book content
     # Use the slug directly as it already contains the full book identifier
     book_url = f"https://r.jina.ai/http://www.blinkist.com/en/reader/books/{info['slug']}"
-    print(f"🔍 Fetching book content from: {book_url}")
+    print(f"Fetching book content from: {book_url}")
     
     book_content = fetch_url(book_url)
     
     if not book_content:
-        print("⚠️ Failed to fetch full book content, using daily page content")
+        print("WARNING: Failed to fetch full book content, using daily page content")
         book_content = daily_content
     else:
-        print("✅ Full book content fetched")
+        print("OK Full book content fetched")
     
     # Parse and format content
     parsed_content = parse_book_content(book_content)
     
     # Save to file
     filepath = save_markdown(info, parsed_content, output_dir=args.output)
-    print(f"💾 Book summary saved to: {filepath}")
+    print(f"Book summary saved to: {filepath}")
     
     return filepath
 
