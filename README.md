@@ -20,7 +20,8 @@ gavin-skills-repo/
 │   ├── _template/      # Standard template for creating new skills
 │   ├── 5d-strategic-thinking/   # 5D Strategic Thinking — deep strategic analysis via 5D framework (Threads, Levels, Altitude, Perspectives, Time)
 │   ├── b2b-product-blog-writing/# B2B Product Blog Writer — SEO-optimized English intros for industrial products, with interactive Q&A
-│   └── blinkist-daily/          # Blinkist Daily Collector — auto-fetches daily free book summaries
+│   ├── blinkist-daily/          # Blinkist Daily Collector — auto-fetches daily free book summaries
+│   └── tauri-v2-icons/          # Tauri V2 Icon Toolkit — validate & generate platform icons (Windows/macOS/Linux/Android/iOS)
 └── LICENSE             # MIT Open Source License
 ```
 
@@ -31,7 +32,7 @@ gavin-skills-repo/
 | **5D Strategic Thinking** | A high-level strategic analysis tool based on the 5-Dimensional Thinking framework — Threads, Levels, Altitude, Perspectives (4 Quadrants), and Time. Provides deep, holistic, and evolutionary perspectives for complex problems and decisions. | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | **Blinkist Daily Collector** | Automatically fetch and save Blinkist's daily free book summary, extracting key insights and metadata into clean Markdown. | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
 | **B2B Product Blog Writer** | Write SEO-optimized English short introductions (~200 words) for B2B industrial products based on source materials (PDFs, docs). Features an interactive Q&A workflow to confirm product details. | [`skills/b2b-product-blog-writing`](skills/b2b-product-blog-writing/SKILL.md) |
-| *Coming Soon* | *More professional skills are under development...* | ... |
+| **Tauri V2 Icon Toolkit** | Validate icon files against Tauri V2 platform specs, and generate all required platform icons (Windows .ico, macOS .icns, Linux .png, Android, iOS) from a source PNG. | [`skills/tauri-v2-icons`](skills/tauri-v2-icons/SKILL.md) |
 
 ## 🚀 How to Use
 

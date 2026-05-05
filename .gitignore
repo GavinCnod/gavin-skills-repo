@@ -32,3 +32,6 @@ skills-lock.json
 .cursor/
 .windsurf/
 .gemini/
+
+# Log history
+.logHistory/

@@ -90,6 +90,7 @@ python ~/.claude/skills/skill-creator/scripts/package_skill.py skills/<skill-nam
 | `5d-strategic-thinking` | Interactive strategic analysis using a 5D framework (Threads, Levels, Altitude, Perspectives, Time) |
 | `blinkist-daily` | Python script that fetches Blinkist's daily free book summary via jina.ai, saves as timestamped Markdown |
 | `b2b-product-blog-writing` | Interactive Q&A workflow to write ~200-word SEO-optimized English B2B product intros from source materials |
+| `tauri-v2-icons` | Validate icon files against Tauri V2 specs and generate all platform icons (Windows/macOS/Linux/Android/iOS) from a source PNG |
 
 ## No Build/Test Infrastructure
 

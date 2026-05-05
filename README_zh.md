@@ -20,7 +20,8 @@ gavin-skills-repo/
 │   ├── _template/      # 标准模板，用于快速创建新技能
 │   ├── 5d-strategic-thinking/   # 5D 战略思维 — 基于五维框架（Threads, Levels, Altitude, Perspectives, Time）的深度战略分析工具
 │   ├── b2b-product-blog-writing/# B2B 工业产品博客写作 — SEO 优化的英文产品介绍，包含交互式 Q&A 工作流
-│   └── blinkist-daily/          # Blinkist 每日书摘采集器 — 自动抓取每日免费书籍摘要
+│   ├── blinkist-daily/          # Blinkist 每日书摘采集器 — 自动抓取每日免费书籍摘要
+│   └── tauri-v2-icons/          # Tauri V2 图标工具包 — 验证并生成全平台应用图标（Windows/macOS/Linux/Android/iOS）
 └── LICENSE             # MIT 开源许可证
 ```
 
@@ -31,7 +32,7 @@ gavin-skills-repo/
 | **5D 战略思维 (5D Strategic Thinking)** | 基于五维思维框架（Threads, Levels, Altitude, Perspectives, Time）的高阶战略分析工具，为复杂问题和决策提供深度、全面和进化的视角。 | [`skills/5d-strategic-thinking`](skills/5d-strategic-thinking/SKILL.md) |
 | **Blinkist 每日书摘 (Blinkist Daily)** | 自动采集 Blinkist 每日免费书籍摘要，并提取核心观点生成 Markdown 笔记。 | [`skills/blinkist-daily`](skills/blinkist-daily/SKILL.md) |
 | **B2B 工业产品博客写作 (B2B Product Blog Writing)** | 根据提供的源文件（PDF、文档等）为 B2B 工业产品撰写 SEO 优化的英文短介绍（约 200 字）。包含交互式 Q&A 工作流确认产品细节。 | [`skills/b2b-product-blog-writing`](skills/b2b-product-blog-writing/SKILL.md) |
-| *Coming Soon* | *更多专业技能正在开发中...* | ... |
+| **Tauri V2 图标工具包 (Tauri V2 Icon Toolkit)** | 验证图标文件是否符合 Tauri V2 平台规范，并从源 PNG 生成全平台所需图标（Windows .ico、macOS .icns、Linux .png、Android、iOS）。 | [`skills/tauri-v2-icons`](skills/tauri-v2-icons/SKILL.md) |
 
 ## 🚀 使用指南 (How to Use)
 
